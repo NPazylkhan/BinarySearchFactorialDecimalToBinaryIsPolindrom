@@ -33,14 +33,32 @@ namespace ConsoleApp7
 
 
             int[] a = { 1, 2, 3, 4, 5 };
-            int[] b = { 1, 2, 3, 4, 5,6,7,8,9,10 };
+            int[] b = new int[10000];
             int N = a.Length;
+
+            for (int i = 0; i < 10000; i++)
+            {
+                b[i] = i;
+            }
 
             int sum = go(a, 0, N - 1);
             int sum2 = Factorial(5);
             Console.WriteLine((0+1)/2);
 
-            Console.WriteLine(BinarySearch(b,0,9,8));
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            Console.WriteLine(BinarySearch(b, 0, 9999, 188));
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine(elapsedMs);
+
+            var watch2 = System.Diagnostics.Stopwatch.StartNew();
+            Console.WriteLine(BinarySearchUsingLoop(b, 188));
+            watch2.Stop();
+            var elapsedMs2 = watch2.ElapsedMilliseconds;
+            Console.WriteLine(elapsedMs2);  
+            
+
+
             Console.WriteLine(DecimalToBinary(8, ""));
             Console.WriteLine(IsPolindrom("qazaq"));
             //Console.ReadKey();
@@ -74,6 +92,23 @@ namespace ConsoleApp7
                 return BinarySearch(a, left, mid-1, x);
 
             return BinarySearch(a, mid + 1, rigth, x);
+        }
+
+        static int BinarySearchUsingLoop(int[] a, int target)
+        {
+            int l = 0, r=a.Length-1;
+            while(l <= r)
+            {
+                int mid = (l + r)/2;
+                if(a[mid] == target) return mid;
+
+                if(target < a[mid])
+                    r = mid-1;
+                else
+                    l = mid+1;
+            }
+
+            return -1;
         }
 
         static string DecimalToBinary(int n, string result)
