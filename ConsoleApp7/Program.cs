@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace ConsoleApp7
 {
@@ -33,10 +35,10 @@ namespace ConsoleApp7
 
 
             int[] a = { 1, 2, 3, 4, 5 };
-            int[] b = new int[10000];
+            int[] b = new int[1000000];
             int N = a.Length;
 
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
                 b[i] = i;
             }
@@ -45,19 +47,21 @@ namespace ConsoleApp7
             int sum2 = Factorial(5);
             Console.WriteLine((0+1)/2);
 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            Console.WriteLine(BinarySearch(b, 0, 9999, 188));
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            Console.WriteLine(elapsedMs);
-
-            var watch2 = System.Diagnostics.Stopwatch.StartNew();
-            Console.WriteLine(BinarySearchUsingLoop(b, 188));
-            watch2.Stop();
-            var elapsedMs2 = watch2.ElapsedMilliseconds;
-            Console.WriteLine(elapsedMs2);  
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Console.WriteLine(BinarySearch(b, 0, 9999, 18888));
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds); 
             
-
+            Stopwatch stopwatch2 = new Stopwatch();
+            stopwatch2.Start();
+            Console.WriteLine(BinarySearchUsingLoop(b, 18888));
+            stopwatch2.Stop();
+            TimeSpan ts2 = stopwatch.Elapsed;
+            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                            ts2.Hours, ts2.Minutes, ts2.Seconds, ts2.Milliseconds);
 
             Console.WriteLine(DecimalToBinary(8, ""));
             Console.WriteLine(IsPolindrom("qazaq"));
