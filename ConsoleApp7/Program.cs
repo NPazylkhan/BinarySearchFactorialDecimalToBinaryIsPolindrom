@@ -62,7 +62,6 @@ namespace ConsoleApp7
             Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
                             ts2.Hours, ts2.Minutes, ts2.Seconds, ts2.Milliseconds);
 
-            Console.WriteLine(DecimalToBinary(8, ""));
         } 
         static int go(int[] a, int l, int r)
         {
