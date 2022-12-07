@@ -63,8 +63,7 @@ namespace ConsoleApp7
                             ts2.Hours, ts2.Minutes, ts2.Seconds, ts2.Milliseconds);
 
             Console.WriteLine(DecimalToBinary(8, ""));
-            Console.WriteLine(IsPolindrom("qazaq"));
-        }
+        } 
         static int go(int[] a, int l, int r)
         {
             if (l == r)
