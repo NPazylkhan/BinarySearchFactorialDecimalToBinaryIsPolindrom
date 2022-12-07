@@ -45,7 +45,6 @@ namespace ConsoleApp7
 
             int sum = go(a, 0, N - 1);
             int sum2 = Factorial(5);
-            Console.WriteLine((0+1)/2);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
