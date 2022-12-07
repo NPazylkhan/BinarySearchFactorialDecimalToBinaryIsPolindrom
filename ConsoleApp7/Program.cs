@@ -64,7 +64,6 @@ namespace ConsoleApp7
 
             Console.WriteLine(DecimalToBinary(8, ""));
             Console.WriteLine(IsPolindrom("qazaq"));
-            //Console.ReadKey();
         }
         static int go(int[] a, int l, int r)
         {
